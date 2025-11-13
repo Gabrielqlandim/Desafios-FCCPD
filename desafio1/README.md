@@ -151,6 +151,6 @@ Ambos os containers estão conectados na mesma **rede Docker customizada** chama
     1- docker run --name client --network desafio1-net desafio1-client
 
     # Saída esperada
-    ![Descrição da imagem](./desafio1-saida.jpeg)
+  ![Descrição da imagem](./desafio1-saida.jpeg)
 
 
