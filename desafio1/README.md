@@ -10,7 +10,7 @@ A ideia é mostrar, na prática, como:
 - expor uma porta para o host;
 - fazer um container “client” consumir um serviço HTTP de outro container.
 
----
+
 
 ## Visão Geral da Solução
 
@@ -28,7 +28,6 @@ A solução é composta por dois containers:
 
 Ambos os containers estão conectados na mesma **rede Docker customizada** chamada `desafio1-net`, o que permite que o client acesse o servidor pelo hostname `web`.
 
----
 
 ## Arquitetura e Fluxo
 

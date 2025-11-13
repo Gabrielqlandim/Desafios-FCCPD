@@ -12,7 +12,7 @@ A ideia é:
 - remover o container;
 - subir outro container usando o **mesmo volume** e mostrar que os dados continuam lá.
 
----
+
 
 ## Visão Geral da Solução
 
@@ -31,7 +31,7 @@ A ideia é:
 > **Importante:** o que persiste não é o container, e sim o **volume**.  
 > O container pode morrer, ser recriado, renomeado, etc., mas enquanto o volume existir, os dados continuam lá.
 
----
+
 
 ## Arquitetura
 

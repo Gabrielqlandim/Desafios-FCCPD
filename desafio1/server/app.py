@@ -13,5 +13,5 @@ def index():
     }
 
 if __name__ == "__main__":
-    # Expõe o servidor em todas as interfaces na porta 8080
+    
     app.run(host="0.0.0.0", port=8080)
