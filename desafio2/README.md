@@ -140,10 +140,16 @@ psql / cliente externo  |   localhost:5432             |
     #Prints
 ![Descrição da imagem](./criação%20do%20bd.jpeg)
 nessa imagem de cima eu crio o banco de dados
+
+
 ![Descrição da imagem](./remoção%20do%20container.jpeg)
 removo o container para provar a persistencia
+
+
 ![Descrição da imagem](./container%20sumiu.jpeg)
 confiro se ele realmente foi removido
 ![Descrição da imagem](./volume%20é%20o%20mesmo.jpeg)
+
+
 Mostro que houve persistencia uma vez que com a remoção, os dados continuaram e nao foram excluidos
 
