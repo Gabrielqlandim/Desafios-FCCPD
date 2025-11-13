@@ -1,0 +1,29 @@
+services:
+  users-service:
+    build: ./users-service
+    container_name: desafio5-users
+    networks:
+      - desafio5-net
+
+  orders-service:
+    build: ./orders-service
+    container_name: desafio5-orders
+    networks:
+      - desafio5-net
+
+  gateway:
+    build: ./gateway
+    container_name: desafio5-gateway
+    ports:
+      - "8080:5000"   
+    environment:
+      USERS_SERVICE_URL: http://users-service:5000
+      ORDERS_SERVICE_URL: http://orders-service:5000
+    depends_on:
+      - users-service
+      - orders-service
+    networks:
+      - desafio5-net
+
+networks:
+  desafio5-net:

@@ -4,8 +4,6 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-# URL do serviço de usuários (Microsserviço A)
-# Em Docker, vamos passar algo tipo: http://service-a:5000/users
 USERS_API_URL = os.getenv("USERS_API_URL", "http://localhost:5001/users")
 
 @app.route("/report", methods=["GET"])
@@ -37,5 +35,5 @@ def health():
     return {"status": "ok"}
 
 if __name__ == "__main__":
-    # Porta interna 5000
+    
     app.run(host="0.0.0.0", port=5000)
