@@ -89,21 +89,21 @@ psql / cliente externo  |   localhost:5432             |
     No Windows PowerShell, se tiver problema com quebras de linha, você pode rodar cada comando em uma linha só.
 
     1) Criar o volume docker
-    - docker volume create desafio2-db-data
+      docker volume create desafio2-db-data
     1.1) (Opcional) Verifica se o volume foi criado
-    - docker volume ls
+      docker volume ls
 
     2) Subir o container do Postgres usando o volume
-    - docker run -d --name desafio2-db -e POSTGRES_USER=usuario -e POSTGRES_PASSWORD=senha123 -e POSTGRES_DB=meubanco -v desafio2-db-data:/var/lib/postgresql/data -p 5432:5432 postgres:16
+      docker run -d --name desafio2-db -e POSTGRES_USER=usuario -e POSTGRES_PASSWORD=senha123 -e POSTGRES_DB=meubanco -v desafio2-db-data:/var/lib/postgresql/data -p 5432:5432 postgres:16
 
     3) Criação de tabela e a inserção dela no BD
-    - docker exec -it desafio2-db psql -U usuario -d meubanco
+      docker exec -it desafio2-db psql -U usuario -d meubanco
     -> dentro do psql voce roda:
         CREATE TABLE clientes (id SERIAL PRIMARY KEY,nome TEXT NOT NULL);
 
-    INSERT INTO clientes (nome) VALUES ('Gabriel'), ('Maria'), ('João');
+        INSERT INTO clientes (nome) VALUES ('Gabriel'), ('Maria'), ('João');
 
-    SELECT * FROM clientes;
+        SELECT * FROM clientes;
 
     se a saida tiver algo como:
     id|nome
@@ -115,25 +115,19 @@ psql / cliente externo  |   localhost:5432             |
     Use \q para sair do psql
 
     4) Para remover o container
-    - docker rm -f desafio2-db
+      docker rm -f desafio2-db
     4.1) (Opcional) Verifica se realmente sumiu
-    -docker ps -a
+      docker ps -a
     4.2) (OPcional) Veja se o volume ainda existe
-    - docker volume ls
+      docker volume ls
 
     5) Subir novo container com mesmo volume
-    - docker run -d \
-        --name desafio2-db \
-        -e POSTGRES_USER=usuario \
-        -e POSTGRES_PASSWORD=senha123 \
-        -e POSTGRES_DB=meubanco \
-        -v desafio2-db-data:/var/lib/postgresql/data \
-        -p 5432:5432 \
-        postgres:16
+      docker run -d --name desafio2-db -e POSTGRES_USER=usuario -e POSTGRES_PASSWORD=senha123 -e POSTGRES_DB=meubanco -v desafio2-db-data:/var/lib/postgresql/data -p 5432:5432 postgres:16
+
     
     6) Provar a persistencia 
-    - docker exec -it desafio2-db psql -U usuario -d meubanco
-    - SELECT * FROM clientes;
+      docker exec -it desafio2-db psql -U usuario -d meubanco
+      SELECT * FROM clientes;
 
     saída esperada é a mesma da outra.
 
