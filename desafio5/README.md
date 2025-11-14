@@ -40,10 +40,22 @@ Rede:
     Para rodar, voce deve estar na pasta do desafio 5
 
     1) Criar 
-    - docker compose up -d --build
+      docker compose up -d --build
 
     2) Mostrar como esta
-    - docker compose ps
+      docker compose ps
+    
+    3) Testar users
+      curl http://localhost:8080/users | Select-Object -Expand Content
+    
+    3.1) Testar orders
+      curl http://localhost:8080/orders | Select-Object -Expand Content
+
+    3.2) testar users-service
+      docker compose exec users-service curl -s http://localhost:5000/users
+    
+    3.3) Testar orders-service
+      docker compose exec orders-service curl -s http://localhost:5000/orders
 
 # Prints
 
