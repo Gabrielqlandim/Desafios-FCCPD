@@ -23,7 +23,7 @@
    
      Quando terminar usar o comando:
      
-       docker compose down -v
+        docker compose down -v
 
    PARA O DESAFIO 4:
    

@@ -120,34 +120,34 @@ Ambos os containers estão conectados na mesma **rede Docker customizada** chama
 
     Todos os comandos abaixo assumem que você está na raiz do repositório
 
-    1-C:\Users\...> cd C:\Users\...\Desafios-FCCPD
+      C:\Users\...> cd C:\Users\...\Desafios-FCCPD
 
     # Criar uma rede docker
 
-    1-docker network create desafio1-net
-    2-docker network ls
+      docker network create desafio1-net
+      docker network ls
 
     # Build de imagens
     1) servidor
-        1-cd desafio1/server
-        2- docker build -t desafio1-web .
+        cd server
+        docker build -t desafio1-web .
     2) cliente
-        1-cd ../client
-        2-docker build -t desafio1-client .
+        cd ../client
+        docker build -t desafio1-client .
     
     # Subir o servidor web
-    1- docker run -d --name web --network desafio1-net -p 8080:8080 desafio1-web
+        docker run -d --name web --network desafio1-net -p 8080:8080 desafio1-web
 
     # Verifica se o container esta rodando (Opcional)
-    1-docker ps
+        docker ps
 
     # testar servidor pelo host
-    1- curl http://localhost:8080 | Select-Object -Expand Content
+        curl http://localhost:8080 | Select-Object -Expand Content
 
     Esse é o que eu usei pq você so ve o json, se for botar: "curl http://localhost:8080" fica com o terminal poluído
 
     # Subir o client que faz requisições em loop
-    1- docker run --name client --network desafio1-net desafio1-client
+        docker run --name client --network desafio1-net desafio1-client
 
     # Saída esperada
   ![Descrição da imagem](./desafio1-saida.jpeg)
