@@ -94,7 +94,7 @@ Cada microsserviço roda em um **container Docker separado**, com seu próprio D
     Todos os comandos abaixo são executados a partir da pasta desafio4
 
     1) Criar a rede Docker
-    - docker network create desafio4-net
+      docker network create desafio4-net
 
     2) Build de imagens
     2.1) service-a
@@ -103,17 +103,18 @@ Cada microsserviço roda em um **container Docker separado**, com seu próprio D
         docker build -t desafio4-service-b ./service-b
 
     3) Subir o Microsserviço A
-        - docker run -d --name service-a \
-            --network desafio4-net \
-            -p 5003:5000 \
-            desafio4-service-a
+        docker run -d --name service-a --network desafio4-net -p 5003:5000 desafio4-service-a
+
     3.2) Subir o Microsserviço B
-        - docker run -d --name service-b \
-            --network desafio4-net \
-            -p 5002:5000 \
-            -e USERS_API_URL=http://service-a:5000/users \
-            desafio4-service-b
-    
+        docker run -d --name service-b --network desafio4-net -p 5002:5000 -e USERS_API_URL=http://service-a:5000/users desafio4-service-b
+
+    4) Verifica se os containers estao de pe
+        docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+    5) Testar microsserviço A
+        curl http://localhost:5003/users
+    5.1) Testar o B
+        curl http://localhost:5002/report
 
 # Prints
 
