@@ -64,16 +64,16 @@ desafio3/
 ## Passo a passo de execução
 
     1) Subir serviços
-    - docker compose up -d --build
+      docker compose up -d --build
     1.1) (Opcional) verificação
-    - docker compose ps
+      docker compose ps
 
     2) Acessar aplicação
-    - curl http://localhost:8000 | Select-Object -Expand Content
+      curl http://localhost:8000 | Select-Object -Expand Content
 
     3) Teste de comunicação
-    - docker compose exec web ping -c 2 db
-    - docker compose exec web ping -c 2 cache
+      docker compose exec web ping -c 2 db
+      docker compose exec web ping -c 2 cache
 
     #Prints
 
